@@ -1,0 +1,11 @@
+name: build
+on:
+  push:
+    branches: [main]
+jobs:
+  docker:
+    runs-on: ubuntu_latest
+    steps:
+      - uses: action/checkout@v4
+      - name: Build image
+        run: docker build -t counter-web:ci .
